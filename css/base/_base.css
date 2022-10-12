@@ -1,0 +1,28 @@
+
+.container{
+    max-width: 90%;
+    margin: 0 auto;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+}
+
+body{
+    
+    min-height: 100vh;
+    color: var(--branco);
+    background-image: url(../../assets/img/fundo.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 300;
+    width: 100%;
+    
+}
