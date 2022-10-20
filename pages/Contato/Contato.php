@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
+<?php   session_start(); ?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +15,7 @@
     require_once "../../components/Header/Header.php";
     ?>
     <main>
-       
+       <p>Contato</p>
     </main>
     <?php
     require_once '../../components/Footer/Footer.php';

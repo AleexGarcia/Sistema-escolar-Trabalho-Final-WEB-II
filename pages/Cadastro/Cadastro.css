@@ -3,3 +3,69 @@
 @import url('../../css/Base/_base.css');
 @import url('../../css/componentes/header/_header.css');
 @import url('../../css/componentes/footer/_footer.css');
+
+
+.formulario{
+    text-align: center;
+    background-color: var(--azulEscuro-opacity);
+    box-shadow: 4px 3px 5px 0px var(--preto);
+    border-radius: 8px;
+    min-width: 300px;
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+   
+}
+.inputBox{
+    width: 100%;
+    padding: 0 1rem;
+    border-radius: 8px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+.formulario__label{
+    display: inline-block;
+    padding: 8px;
+}
+.formulario__input{
+    flex-grow: 1;
+    outline: none;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    
+}
+
+.formulario__button{
+    border: none;
+    border-radius: 8px;
+    padding: 8px 0;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--verdeMeioAzul);
+    color: var(--branco);
+    width: 8rem;
+}
+.formulario__button:hover{
+    
+    cursor: pointer;
+    box-shadow:  0 0 1px 1px var(--verde);
+    color: var(--verde) ;
+    
+}
+.formulario__link{
+    color: var(--branco);
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+.formulario__link:hover{
+    color: var(--verde);
+   
+}
+.formulario__mensagemErro{
+
+    font-size: 14px;
+    
+}

@@ -1,6 +1,10 @@
 <!DOCTYPE html>
-<? require_once './scripts/validadorAcesso.php'; ?>
 <html lang="pt-br">
+<?php
+
+require_once '../../scripts/validadorAcesso.php';
+
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -16,6 +20,9 @@
     require_once "../../components/Header/Header.php";
     ?>
     <main>
+        <?php
+        print_r($_COOKIE['token']);
+        ?>
         <p>Home</p>
     </main>
     <?php

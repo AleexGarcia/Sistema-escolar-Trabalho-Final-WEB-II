@@ -1,6 +1,10 @@
 <!DOCTYPE html>
-<? require_once './scripts/validadorAcesso.php'; ?>
 <html lang="pt-br">
+<?php
+
+require_once '../../scripts/validadorAcesso.php';
+
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -16,7 +20,7 @@
     require_once "../../components/Header/Header.php";
     ?>
     <main>
-       <p>Plano de Ensino</p>
+        <p>Plano de Ensino</p>
     </main>
     <?php
     require_once '../../components/Footer/Footer.php';
