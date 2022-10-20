@@ -1,18 +1,19 @@
 <?php 
     
     session_start();
+    //requisição do dataBase
+   
+    require '../../../dataBase/config.php';
+    $sql = $pdo -> query('SELECT * FROM usuario');
 
-    
     //variavel que verifica se a autenticação foi realizada
+   
     $usuarioAutenticado = false;
     $typeUser = null;
+    
     //Banco de dados de usuarios
-    $usuariosApp = array(
-        array('id'=> 1, 'acesso' => 'administrador', 'user' => 'admin', 'senha' => '123'),
-        array('id'=> 2, 'acesso' => 'funcionario', 'user' => 'professor', 'senha' => '1234'),
-        array('id'=> 3, 'acesso' => 'aluno', 'user' => 'aluno', 'senha' => '1234'),
-    );
-
+    
+    $usuariosApp = $sql-> fetchAll(PDO::FETCH_ASSOC);
 
     //dados recebidos do formulario
     
@@ -20,13 +21,16 @@
     $senhaRecebida =  filter_input(INPUT_POST,'senha',FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
    //verificando se o login é válido
-    foreach($usuariosApp as $user){
+ 
+   foreach($usuariosApp as $user){
         if($user['user'] === $loginRecebido && $user['senha'] === $senhaRecebida){
             $usuarioAutenticado = true;
             $typeUser = $user['acesso'];
         }
     }
+   
     //Ação se atenticado ou nao
+  
     if($usuarioAutenticado){
         $expiracao = time() + 86400 * 5;
         setcookie("token","acessoPermitido", $expiracao ,'/');
@@ -35,5 +39,5 @@
         header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/Pages/Home/Home.php');
     }else{
         $_SESSION['autenticado'] = 'NAO';
-        header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/Pages/Login/Login.php?login=erro');
+       header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/Pages/Login/Login.php?login=erro');
     }
