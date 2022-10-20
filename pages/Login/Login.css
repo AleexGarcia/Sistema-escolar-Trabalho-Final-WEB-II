@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,700;1,400&display=swap');
+@import url('../../css/Base/_variaveis.css');
+@import url('../../css/Base/_base.css');
+@import url('../../css/componentes/header/_header.css');
+@import url('../../css/componentes/footer/_footer.css');
+
 
 .formulario{
     text-align: center;
@@ -57,4 +63,9 @@
 .formulario__link:hover{
     color: var(--verde);
    
+}
+.formulario__mensagemErro{
+
+    font-size: 14px;
+    
 }

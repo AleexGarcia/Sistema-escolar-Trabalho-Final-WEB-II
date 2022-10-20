@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -27,14 +28,7 @@
             <?php if (isset($_GET['login']) && $_GET['login'] == 'erro') { ?>
 
                 <span class="formulario__mensagemErro">
-                    Usuário ou senha inválido(s)!
-                </span>
-
-            <?php } ?>
-            <?php if (isset($_GET['login']) && $_GET['login'] == 'erro2') { ?>
-
-                <span class="formulario__mensagemErro">
-                    Faça login antes de acessar as paginas protegidas!
+                    Usuário ou senha inválido(s)
                 </span>
 
             <?php } ?>
