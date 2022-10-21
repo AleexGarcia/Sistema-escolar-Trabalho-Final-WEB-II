@@ -5,6 +5,7 @@
     --azul:#47B5FF;
     --verde: #8FE3CF;
     --branco: #fff;
+    --brancoTransparente: rgba(255, 255, 255, 0.2);
     --preto: #000;
     --font-family:'Roboto Condensed', sans-serif;
 

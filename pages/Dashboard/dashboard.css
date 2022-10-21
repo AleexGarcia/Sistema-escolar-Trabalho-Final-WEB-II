@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,700;1,400&display=swap');
+@import url('../../css/Base/_variaveis.css');
+@import url('../../css/Base/_base.css');
+@import url('../../css/componentes/header/_header.css');
+@import url('../../css/componentes/footer/_footer.css');
+
+
+.dashboard{
+    text-align: center;
+    background-color: var(--azulEscuro-opacity);
+    box-shadow: 4px 3px 5px 0px var(--preto);
+    border-radius: 8px;
+    min-width: 300px;
+    padding: 2rem 0;
+    color: var(--branco);
+    border: solid 1px var(--branco);
+}
