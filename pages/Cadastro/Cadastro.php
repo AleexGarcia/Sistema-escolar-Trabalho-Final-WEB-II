@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <?php
+session_start();
 require_once '../../scripts/validadorAcesso.php';
 if (isset($_COOKIE['acesso']) && $_COOKIE['acesso'] != 'administrador') {
     header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/Pages/Home/Home.php');
@@ -22,14 +23,31 @@ if (isset($_COOKIE['acesso']) && $_COOKIE['acesso'] != 'administrador') {
     require_once "../../components/Header/Header.php";
     ?>
     <main>
+        <h2>Cadastrar novo usuário</h2>
         <form action="CriaCadastro/CriaCadastro.php" method="post" class="formulario">
             <div class="inputBox">
-                <label for="login" class="formulario__label">User:</label>
-                <input name="user" placeholder="Digite o CPF" type="text" id="login" class="formulario__input">
+                <label for="matricula" class="formulario__label">Matricula:</label>
+                <input name="matricula" placeholder="Informe a matricula" type="text" id="matricula" class="formulario__input">
             </div>
             <div class="inputBox">
                 <label for="senha" class="formulario__label">Senha:</label>
                 <input  name="senha" placeholder="Digite a senha" type="text" id="senha" class="formulario__input">
+            </div>
+            <div class="inputBox">
+                <label for="nome" class="formulario__label">Nome:</label>
+                <input  name="nome" placeholder="Digite o nome" type="text" id="nome" class="formulario__input">
+            </div>
+            <div class="inputBox">
+                <label for="sobrenome" class="formulario__label">Sobrenome:</label>
+                <input  name="sobrenome" placeholder="Digite o sobrenome" type="text" id="sobrenome" class="formulario__input">
+            </div>
+            <div class="inputBox">
+                <label for="email" class="formulario__label">Email:</label>
+                <input  name="email" placeholder="Digite o email" type="email" id="email" class="formulario__input">
+            </div>
+            <div class="inputBox">
+                <label for="nascimento" class="formulario__label">Data de nascimento:</label>
+                <input  name="nascimento" type="date" id="nascimento" class="formulario__input">
             </div>
             <div class="inputBox">
                 <label for="acesso" class="formulario__label">Acesso:</label>
@@ -39,9 +57,7 @@ if (isset($_COOKIE['acesso']) && $_COOKIE['acesso'] != 'administrador') {
                     <option value="aluno">Aluno</option>
                 </select>
             </div>
-            <?php
-            session_start();
-            if (isset($_SESSION['cadastro'])) { ?>
+            <?php if (isset($_SESSION['cadastro'])) { ?>
                 <?php if ($_SESSION['cadastro'] == 'sucesso') { ?>
                     <span class="formulario__mensagemErro">Usuário cadastrado com sucesso!</span>
                 <?php } ?>

@@ -1,5 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+if(isset($_GET['id'])){
+
+    require '../../dataBase/config.php';
+    $id = $_GET['id'];
+    $sql = 'SELECT * FROM usuario WHERE' . ' usuario.id' . " =  $id";
+    $statement = $pdo->query($sql);
+    $user = $statement->fetchAll(PDO::FETCH_ASSOC);
+    
+    $nomeUser = $user[0]['nome'];
+    $sobreNomeUser = $user[0]['sobrenome'];
+    $emailUser = $user[0]['email'];
+    $senhaUser = $user[0]['senha'];
+    $nascimentoUser = $user[0]['nascimento'];
+    $matriculaUser = $user[0]['matricula'];
+}
+
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -26,24 +44,57 @@
                 </div>
                 <div class="search-box">
                     <label for="nome">Nome</label>
-                    <input type="text" name="nome" id="nome">
+                    <input <?php if (isset($_GET['id']) && $nomeUser != '') {
+                                echo "value= $nomeUser";
+                            } else {
+                                echo '';
+                            } ?> type="text" name="nome" id="nome">
                 </div>
                 <div class="search-box">
                     <label for="sobrenome">Sobrenome</label>
-                    <input type="text" name="sobrenome" id="sobrenome">
+                    <input <?php if (isset($_GET['id']) && $sobreNomeUser != '') {
+                                echo "value= $sobreNomeUser";
+                            } ?> type="text" name="sobrenome" id="sobrenome">
                 </div>
                 <div class="search-box">
                     <label for="email">E-mail</label>
-                    <input type="email" name="email" id="email">
+                    <input <?php if (isset($_GET['id']) && $emailUser != '') {
+                                echo "value=$emailUser";
+                            }
+                            ?> type="email" name="email" id="email">
                 </div>
                 <div class="search-box">
                     <label for="senha">Alterar senha</label>
-                    <input type="senha" name="senha" id="senha">
+                    <input <?php if (isset($_GET['id']) && $senhaUser != '') {
+                                echo "value=$senhaUser";
+                            }
+                            ?> type="senha" name="senha" id="senha">
                 </div>
                 <div class="search-box date">
                     <label for="dataNascimento">Data de Nascimento</label>
-                    <input type="date" name="dataNascimento" id="dataNascimento">
+                    <input <?php if (isset($_GET['id']) && $nascimentoUser != '') {
+                                echo "value=$nascimentoUser";
+                            }
+                            ?> type="date" name="dataNascimento" id="dataNascimento">
                 </div>
+                <?php if (isset($_COOKIE['acesso']) && $_COOKIE['acesso'] == 'administrador') { ?>
+                    <div class="search-box">
+                        <label for="acesso" class="formulario__label">Acesso:</label>
+                        <select name="acesso" id="acesso" class="formulario__input">
+                            <option value="administrador">Administrador</option>
+                            <option value="funcionario">Funcionario </option>
+                            <option value="aluno">Aluno</option>
+                        </select>
+                    </div>
+                    <div class="search-box">
+                        <label for="matricula" class="formulario__label">Matricula:</label>
+                        <input <?php if (isset($_GET['id']) && $matriculaUser != '') {
+                                echo "value=$matriculaUser";
+                            }?>
+                        
+                        name="matricula" placeholder="Informe a matricula" type="text" id="matricula">
+                    </div>
+                <?php } ?>
                 <button class="perfil__button" type="submit">Editar</button>
             </form>
         </section>

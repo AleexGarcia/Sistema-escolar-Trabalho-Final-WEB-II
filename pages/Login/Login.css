@@ -7,7 +7,7 @@
 
 .formulario{
     text-align: center;
-    background-color: var(--azulEscuro-opacity);
+    background-color: var(--brancoTransparente);
     box-shadow: 4px 3px 5px 0px var(--preto);
     border-radius: 8px;
     min-width: 300px;

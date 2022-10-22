@@ -67,7 +67,14 @@
     border: none;
     border-radius: 16px;
 }
-
+.formulario__input{
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    
+}
 @media screen and (min-width: 768px) {
     .perfil{
         padding: 2rem 4rem;
