@@ -1,7 +1,15 @@
 <?php
 
-$nome = 'Harry Potter';
-$imagem = '../../assets/img/perfil.png';
+if(isset($_COOKIE["id"])){
+    require '../../dataBase/config.php';
+    $id = $_COOKIE['id'];
+    $sql = 'SELECT * FROM usuario WHERE' . ' usuario.id' . " =  $id";
+    $statement = $pdo->query($sql);
+    $user = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $nome = $user[0]['nome'];
+    $imagem = '../../assets/img/perfil.png';
+}
+
 
 
 echo '<header class="header">

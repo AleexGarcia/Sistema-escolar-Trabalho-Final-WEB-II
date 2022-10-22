@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-if(isset($_GET['id'])){
+if(isset($_GET['id']) && $_COOKIE['acesso'] =='administrador' || isset($_COOKIE['id'])){
 
     require '../../dataBase/config.php';
-    $id = $_GET['id'];
+    if(isset($_GET['id'])){
+        $id = $_GET['id'];
+    }else{
+        $id = $_COOKIE['id'];
+    }
+
     $sql = 'SELECT * FROM usuario WHERE' . ' usuario.id' . " =  $id";
     $statement = $pdo->query($sql);
     $user = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -44,7 +49,7 @@ if(isset($_GET['id'])){
                 </div>
                 <div class="search-box">
                     <label for="nome">Nome</label>
-                    <input <?php if (isset($_GET['id']) && $nomeUser != '') {
+                    <input <?php if ($nomeUser != '') {
                                 echo "value= $nomeUser";
                             } else {
                                 echo '';
@@ -52,27 +57,27 @@ if(isset($_GET['id'])){
                 </div>
                 <div class="search-box">
                     <label for="sobrenome">Sobrenome</label>
-                    <input <?php if (isset($_GET['id']) && $sobreNomeUser != '') {
+                    <input <?php if ($sobreNomeUser != '') {
                                 echo "value= $sobreNomeUser";
                             } ?> type="text" name="sobrenome" id="sobrenome">
                 </div>
                 <div class="search-box">
                     <label for="email">E-mail</label>
-                    <input <?php if (isset($_GET['id']) && $emailUser != '') {
+                    <input <?php if ($emailUser != '') {
                                 echo "value=$emailUser";
                             }
                             ?> type="email" name="email" id="email">
                 </div>
                 <div class="search-box">
                     <label for="senha">Alterar senha</label>
-                    <input <?php if (isset($_GET['id']) && $senhaUser != '') {
+                    <input <?php if ($senhaUser != '') {
                                 echo "value=$senhaUser";
                             }
                             ?> type="senha" name="senha" id="senha">
                 </div>
                 <div class="search-box date">
                     <label for="dataNascimento">Data de Nascimento</label>
-                    <input <?php if (isset($_GET['id']) && $nascimentoUser != '') {
+                    <input <?php if ($nascimentoUser != '') {
                                 echo "value=$nascimentoUser";
                             }
                             ?> type="date" name="dataNascimento" id="dataNascimento">
@@ -88,7 +93,7 @@ if(isset($_GET['id'])){
                     </div>
                     <div class="search-box">
                         <label for="matricula" class="formulario__label">Matricula:</label>
-                        <input <?php if (isset($_GET['id']) && $matriculaUser != '') {
+                        <input <?php if ($matriculaUser != '') {
                                 echo "value=$matriculaUser";
                             }?>
                         

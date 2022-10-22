@@ -10,7 +10,7 @@
    
     $usuarioAutenticado = false;
     $typeUser = null;
-    
+    $id = null;
     //Banco de dados de usuarios
     
     $usuariosApp = $sql-> fetchAll(PDO::FETCH_ASSOC);
@@ -26,6 +26,7 @@
         if($user['matricula'] === $loginRecebido && $user['senha'] === $senhaRecebida){
             $usuarioAutenticado = true;
             $typeUser = $user['acesso'];
+            $id = $user['id'];
         }
     }
    
@@ -35,6 +36,7 @@
         $expiracao = time() + 86400 * 5;
         setcookie("token","acessoPermitido", $expiracao ,'/');
         setcookie("acesso", $typeUser, $expiracao ,'/');
+        setcookie("id", $id, $expiracao ,'/');
         $_SESSION['autenticado'] = 'SIM';
         header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/Pages/Home/Home.php');
     }else{
