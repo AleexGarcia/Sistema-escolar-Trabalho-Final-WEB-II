@@ -20,7 +20,7 @@ if ($matricula && $senha && $acesso && $nome && $sobrenome && $email && $nascime
     $sql->execute();
 
     if ($sql->rowCount() === 0) {
-        $sql = $pdo->prepare("INSERT INTO usuario (id, acesso, matricula, senha) VALUES (:id, :acesso, :matricula,:senha, :nome,:sobrenome,:email,:nascimento)");
+        $sql = $pdo->prepare("INSERT INTO usuario (id, acesso, matricula, senha,nome,sobrenome,nascimento,email) VALUES (:id, :acesso, :matricula,:senha,:nome, :sobrenome, :nascimento, :email)");
         $sql->bindValue(':id', $id);
         $sql->bindValue(':acesso', $acesso);
         $sql->bindValue(':matricula', $matricula);

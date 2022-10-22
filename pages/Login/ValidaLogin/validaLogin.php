@@ -17,13 +17,13 @@
 
     //dados recebidos do formulario
     
-    $loginRecebido =  filter_input(INPUT_POST,'user',FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $loginRecebido =  filter_input(INPUT_POST,'matricula',FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $senhaRecebida =  filter_input(INPUT_POST,'senha',FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
    //verificando se o login é válido
  
    foreach($usuariosApp as $user){
-        if($user['user'] === $loginRecebido && $user['senha'] === $senhaRecebida){
+        if($user['matricula'] === $loginRecebido && $user['senha'] === $senhaRecebida){
             $usuarioAutenticado = true;
             $typeUser = $user['acesso'];
         }

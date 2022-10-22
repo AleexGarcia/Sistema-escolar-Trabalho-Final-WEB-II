@@ -18,7 +18,7 @@
         <form action="ValidaLogin/validaLogin.php" method="post" class="formulario">
             <div class="inputBox">
                 <label for="login" class="formulario__label">Login:</label>
-                <input name="user" placeholder="Digite sua matricula ou CPF" type="text" id="login" class="formulario__input">
+                <input name="matricula" placeholder="Digite sua matricula ou CPF" type="text" id="login" class="formulario__input">
             </div>
             <div class="inputBox">
                 <label for="senha" class="formulario__label">Senha:</label>
