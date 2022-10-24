@@ -13,7 +13,6 @@ if(isset($_GET['id']) && $_COOKIE['acesso'] =='administrador' || isset($_COOKIE[
     $sql = 'SELECT * FROM usuario WHERE' . ' usuario.id' . " =  $id";
     $statement = $pdo->query($sql);
     $user = $statement->fetchAll(PDO::FETCH_ASSOC);
-    
     $nomeUser = $user[0]['nome'];
     $sobreNomeUser = $user[0]['sobrenome'];
     $emailUser = $user[0]['email'];
@@ -39,7 +38,7 @@ if(isset($_GET['id']) && $_COOKIE['acesso'] =='administrador' || isset($_COOKIE[
     <main>
         <section class="perfil">
             <h1 class="perfil__titulo">Editar perfil</h1>
-            <form class="perfil__form" action="editorPerfil/editorPerfil.php" method="post">
+            <form class="perfil__form" action="./atualizaPerfil/atualizaPerfil.php?id=<?php echo $id?>" method="post">
                 <div class="search-box">
                     <div class="boxImgPerfil">
                         <img class="perfil__imagem" src="../../assets/img/perfil.png" alt="">
