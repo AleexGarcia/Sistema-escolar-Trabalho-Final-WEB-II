@@ -49,7 +49,7 @@ if(isset($_GET['id']) && $_COOKIE['acesso'] =='administrador' || isset($_COOKIE[
                 <div class="search-box">
                     <label for="nome">Nome</label>
                     <input <?php if ($nomeUser != '') {
-                                echo "value= $nomeUser";
+                                echo "value= '$nomeUser'";
                             } else {
                                 echo '';
                             } ?> type="text" name="nome" id="nome">
@@ -57,27 +57,27 @@ if(isset($_GET['id']) && $_COOKIE['acesso'] =='administrador' || isset($_COOKIE[
                 <div class="search-box">
                     <label for="sobrenome">Sobrenome</label>
                     <input <?php if ($sobreNomeUser != '') {
-                                echo "value= $sobreNomeUser";
+                                echo "value= '$sobreNomeUser'";
                             } ?> type="text" name="sobrenome" id="sobrenome">
                 </div>
                 <div class="search-box">
                     <label for="email">E-mail</label>
                     <input <?php if ($emailUser != '') {
-                                echo "value=$emailUser";
+                                echo "value='$emailUser'";
                             }
                             ?> type="email" name="email" id="email">
                 </div>
                 <div class="search-box">
                     <label for="senha">Alterar senha</label>
                     <input <?php if ($senhaUser != '') {
-                                echo "value=$senhaUser";
+                                echo "value='$senhaUser'";
                             }
                             ?> type="senha" name="senha" id="senha">
                 </div>
                 <div class="search-box date">
                     <label for="dataNascimento">Data de Nascimento</label>
                     <input <?php if ($nascimentoUser != '') {
-                                echo "value=$nascimentoUser";
+                                echo "value='$nascimentoUser'";
                             }
                             ?> type="date" name="dataNascimento" id="dataNascimento">
                 </div>
@@ -93,7 +93,7 @@ if(isset($_GET['id']) && $_COOKIE['acesso'] =='administrador' || isset($_COOKIE[
                     <div class="search-box">
                         <label for="matricula" class="formulario__label">Matricula:</label>
                         <input <?php if ($matriculaUser != '') {
-                                echo "value=$matriculaUser";
+                                echo "value='$matriculaUser'";
                             }?>
                         
                         name="matricula" placeholder="Informe a matricula" type="text" id="matricula">
