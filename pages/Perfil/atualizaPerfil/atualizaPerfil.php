@@ -9,6 +9,8 @@ $sobrenome = filter_input(INPUT_POST, 'sobrenome', FILTER_SANITIZE_FULL_SPECIAL_
 $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 $nascimento = filter_input(INPUT_POST, 'nascimento', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $acesso = filter_input(INPUT_POST, 'acesso', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$imagem = $_FILES('foto');
+
 $id = $_GET['id'];
 
 $sql = "UPDATE usuario SET acesso = :acesso , matricula = :matricula , senha = :senha ,nome = :nome ,sobrenome = :sobrenome ,nascimento = :nascimento ,email = :email WHERE". " usuario.id" . " =  $id;";
