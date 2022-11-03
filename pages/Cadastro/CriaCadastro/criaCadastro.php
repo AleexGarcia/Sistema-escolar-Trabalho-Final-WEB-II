@@ -1,7 +1,6 @@
 <?php
 
 require '../../../dataBase/config.php';
-session_start();
 
 //pegando valores do formulario
 $matricula = filter_input(INPUT_POST, 'matricula', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -30,15 +29,13 @@ if ($matricula && $senha && $acesso && $nome && $sobrenome && $email && $nascime
         $sql->bindValue(':email', $email);
         $sql->bindValue(':nascimento', $nascimento);
         $sql->execute();
-        $_SESSION['cadastro'] = 'sucesso';
-        header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/Pages/Cadastro/Cadastro.php');
+    
+        header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/Pages/Cadastro/Cadastro.php?cadastro=sucesso');
     } else {
-        $_SESSION['cadastro'] = 'erro1';
-        header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/Pages/Cadastro/Cadastro.php');
+          
+        header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/Pages/Cadastro/Cadastro.php?cadastro=erro1');
     }
 } else {
-    $_SESSION['cadastro'] = 'erro2';
-    header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/Pages/Cadastro/Cadastro.php');
+ header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/Pages/Cadastro/Cadastro.php?cadastro=erro2');
 }
 
-$sql = $pdo->prepare('SELECT * FROM usuario');
