@@ -79,7 +79,7 @@ if(isset($_GET['id']) && $_COOKIE['acesso'] =='administrador' || isset($_COOKIE[
                     <input <?php if ($nascimentoUser != '') {
                                 echo "value='$nascimentoUser'";
                             }
-                            ?> type="date" name="dataNascimento" id="dataNascimento">
+                            ?> type="date" name="nascimento" id="dataNascimento">
                 </div>
                 <?php if (isset($_COOKIE['acesso']) && $_COOKIE['acesso'] == 'administrador') { ?>
                     <div class="search-box">
