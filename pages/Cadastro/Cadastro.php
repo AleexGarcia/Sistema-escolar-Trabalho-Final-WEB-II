@@ -57,14 +57,14 @@ if (isset($_COOKIE['acesso']) && $_COOKIE['acesso'] != 'administrador') {
                     <option value="aluno">Aluno</option>
                 </select>
             </div>
-            <?php if (isset($_SESSION['cadastro'])) { ?>
-                <?php if ($_SESSION['cadastro'] == 'sucesso') { ?>
+           <?php if (isset($_GET['cadastro'])) { ?>
+                <?php if ($_GET['cadastro'] == 'sucesso') { ?>
                     <span class="formulario__mensagemErro">Usuário cadastrado com sucesso!</span>
                 <?php } ?>
-                <?php if ($_SESSION['cadastro'] == 'erro1') { ?>
+                <?php if ($_GET['cadastro'] == 'erro1') { ?>
                     <span class="formulario__mensagemErro">Usuário ja cadastrado!</span>
                 <?php } ?>
-                <?php if ($_SESSION['cadastro'] == 'erro2') { ?>
+                <?php if ($_GET['cadastro'] == 'erro2') { ?>
                     <span class="formulario__mensagemErro">Informe usuario, senha e selecione o tipo de acesso!</span>
                 <?php } ?>
             <?php } ?>
