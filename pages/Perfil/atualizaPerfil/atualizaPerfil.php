@@ -10,21 +10,25 @@ $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 $nascimento = filter_input(INPUT_POST, 'nascimento', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $acesso = filter_input(INPUT_POST, 'acesso', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $imagem = $_FILES('foto');
+$id = $_GET['id'] | $_COOKIE['id'];
 
-$id = $_GET['id'];
+$sql = "UPDATE usuario SET acesso = :acesso , matricula = :matricula , senha = :senha ,nome = :nome ,sobrenome = :sobrenome ,nascimento = :nascimento ,email = :email WHERE". " usuario.id" . " =  $id";
 
-$sql = "UPDATE usuario SET acesso = :acesso , matricula = :matricula , senha = :senha ,nome = :nome ,sobrenome = :sobrenome ,nascimento = :nascimento ,email = :email WHERE". " usuario.id" . " =  $id;";
 
-$statement = $pdo->prepare($sql);
+if($matricula && $senha && $nome && $sobrenome && $email && $nascimento && $acesso ){
 
-$statement->bindValue(':acesso', $acesso);
-$statement->bindValue(':matricula', $matricula);
-$statement->bindValue(':senha', $senha);
-$statement->bindValue(':nome', $nome);
-$statement->bindValue(':sobrenome', $sobrenome);
-$statement->bindValue(':email', $email);
-$statement->bindValue(':nascimento', $nascimento);
-
-$statement->execute();
-
-header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/Pages/Perfil/Perfil.php');
+    $statement = $pdo->prepare($sql);
+    
+    $statement->bindValue(':acesso', $acesso);
+    $statement->bindValue(':matricula', $matricula);
+    $statement->bindValue(':senha', $senha);
+    $statement->bindValue(':nome', $nome);
+    $statement->bindValue(':sobrenome', $sobrenome);
+    $statement->bindValue(':email', $email);
+    $statement->bindValue(':nascimento', $nascimento);
+    
+    $statement->execute();
+    header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/Pages/Perfil/Perfil.php');
+}else{
+    
+}
