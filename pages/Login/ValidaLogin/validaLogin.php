@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+
 //requisição do dataBase
 
 require '../../../dataBase/config.php';
@@ -41,8 +41,9 @@ if ($usuarioAutenticado) {
     setcookie("id", $id, $expiracao, '/');
     setcookie("nome", $nomeCompleto, $expiracao, '/');
     setcookie("acesso", $acesso, $expiracao, '/');
-    header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/Pages/Home/Home.php');
+    header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/index.php?page=home');
+    exit;
 } else {
-
-    header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/Pages/Login/Login.php?login=erro');
+    header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/index.php?page=login&login=erro');
+    exit;
 }

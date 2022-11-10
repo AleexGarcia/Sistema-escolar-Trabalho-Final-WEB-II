@@ -1,28 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<?php
+ <?php
 
-require '../../dataBase/config.php';
+require './dataBase/config.php';
 
 $sql = $pdo->query('SELECT * FROM usuario');
 
 $usuariosApp = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
+<!DOCTYPE html>S
+<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./dashboard.css">
-    <title>Document</title>
-</head>
-
-<body>
-    <?php
-    require_once "../../components/Header/Header.php";
-    ?>
-    <main>
         <div class="table-container">
             <table class="dashboard">
                 <thead>
@@ -48,7 +35,7 @@ $usuariosApp = $sql->fetchAll(PDO::FETCH_ASSOC);
                             <td> <?php echo $user['matricula'] ?> </td>
                             <td> <?php echo $user['email'] ?> </td>
                             <td> <?php echo $user['acesso'] ?> </td>
-                            <td class="editar"><a href="../Perfil/Perfil.php?id=<?php echo $user['id'] ?>" class="fa-solid fa-pencil"></a> </td>
+                            <td class="editar"><a href="/Sistema-escolar-Trabalho-Final-WEB-II/index.php?page=perfil&id=<?php echo $user['id'] ?>" class="fa-solid fa-pencil"></a> </td>
                             <td class="excluir"><a href="../Dashboard/Apagar/Apagar.php?id=<?php echo $user['id'] ?>" class="fa-solid fa-trash"></a></td>
                         </tr>
                     <?php endforeach ?>
@@ -60,10 +47,5 @@ $usuariosApp = $sql->fetchAll(PDO::FETCH_ASSOC);
                 </tfoot>
             </table>
         </div>
-    </main>
-    <?php
-    require_once '../../components/Footer/Footer.php';
-    ?>
-</body>
 
 </html>

@@ -46,9 +46,9 @@ if($matricula && $senha && $nome && $sobrenome && $email && $nascimento && $aces
     $statement->bindValue(':imagem', $localInicio);
     
     $statement->execute();
-    header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/Pages/Perfil/Perfil.php');
+    header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/index.php?page=perfil');
     exit;
 }else{
-    header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/Pages/Perfil/Perfil.php?erro=preenchimento');
+    header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/index.php?page=perfil&erro=preenchimento');
     exit;
 }

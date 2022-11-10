@@ -32,13 +32,15 @@ if ($matricula && $senha && $acesso && $nome && $sobrenome && $email && $nascime
         $sql->bindValue(':email', $email);
         $sql->bindValue(':nascimento', $nascimento);
         $sql->execute();
-    
-        header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/Pages/Cadastro/Cadastro.php?cadastro=sucesso');
+
+        header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/index.php?page=cadastro&cadastro=sucesso');
+        exit;
     } else {
-          
-        header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/Pages/Cadastro/Cadastro.php?cadastro=erro1');
+
+        header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/index.php?page=cadastro&cadastro=erro1');
+        exit;
     }
 } else {
- header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/Pages/Cadastro/Cadastro.php?cadastro=erro2');
+    header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/index.php?page=cadastro&cadastro=erro2');
+    exit;
 }
-

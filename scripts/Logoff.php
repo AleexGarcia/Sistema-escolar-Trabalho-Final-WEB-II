@@ -5,6 +5,6 @@
     setcookie("nome",'', $expiracao ,'/');
     setcookie("acesso",'', $expiracao ,'/');
     setcookie("id",'', $expiracao ,'/');
-    header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/Pages/Login/Login.php');
-
+    header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/index.php?page=login');
+    exit;
 ?>
