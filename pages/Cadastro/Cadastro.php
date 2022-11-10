@@ -2,10 +2,11 @@
 <html lang="pt-br">
 <?php
 session_start();
-// require_once '../../scripts/validadorAcesso.php';
-// if (isset($_COOKIE['acesso']) && $_COOKIE['acesso'] != 'administrador') {
-//     header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/Pages/Home/Home.php');
-// }
+require_once '../../scripts/validadorAcesso.php';
+if (isset($_COOKIE['acesso']) && $_COOKIE['acesso'] != md5('administrador')) {
+    header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/Pages/Home/Home.php');
+    exit;
+}
 
 ?>
 

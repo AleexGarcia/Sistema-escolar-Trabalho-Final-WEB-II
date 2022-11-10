@@ -23,7 +23,10 @@ if($imagemRecebida != NULL) {
 	move_uploaded_file($imagemRecebida['tmp_name'], $localRefPerfil);
 	$localInicio = 	"/Sistema-escolar-Trabalho-Final-WEB-II/dataBase/userImagens/$nomeFinal";
 	
+}else{
+    $localInicio = 	"/Sistema-escolar-Trabalho-Final-WEB-II/dataBase/userImagens/userPadrao.jpg";
 }
+
 $id = $_GET['id'] ? $_GET['id'] : $_COOKIE['id'];
 
 $sql = "UPDATE usuario SET acesso = :acesso , matricula = :matricula , senha = :senha ,nome = :nome ,sobrenome = :sobrenome ,nascimento = :nascimento ,email = :email, imagem = :imagem WHERE". " usuario.id" . " =  $id";
@@ -44,6 +47,8 @@ if($matricula && $senha && $nome && $sobrenome && $email && $nascimento && $aces
     
     $statement->execute();
     header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/Pages/Perfil/Perfil.php');
+    exit;
 }else{
-    header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/Pages/Perfil/Perfil.php?erro=erro');
+    header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/Pages/Perfil/Perfil.php?erro=preenchimento');
+    exit;
 }

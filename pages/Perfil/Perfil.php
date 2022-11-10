@@ -19,9 +19,9 @@ if(isset($_GET['id']) && $_COOKIE['acesso'] == md5('administrador') || isset($_C
     $nomeUser = $user[0]['nome'];
     $sobreNomeUser = $user[0]['sobrenome'];
     $emailUser = $user[0]['email'];
-    $senhaUser = '';
     $nascimentoUser = $user[0]['nascimento'];
     $matriculaUser = $user[0]['matricula'];
+    $imagemUser = $user[0]['imagem'] != null ? $user[0]['imagem'] : '/Sistema-escolar-Trabalho-Final-WEB-II/dataBase/userImagens/userPadrao.jpg';
 }
 
 ?>
@@ -44,7 +44,7 @@ if(isset($_GET['id']) && $_COOKIE['acesso'] == md5('administrador') || isset($_C
             <form class="perfil__form" action="./atualizaPerfil/atualizaPerfil.php?id=<?php echo $id?>" method="post" enctype="multipart/form-data">
                 <div class="search-box">
                     <div class="boxImgPerfil">
-                        <img class="perfil__imagem" src="<?php echo $imagem ?>" alt="">
+                        <img class="perfil__imagem" src="<?php echo $imagemUser ?>" alt="">
                         <label for="foto" class="foto__label fa-solid fa-pencil"></label>
                     </div>
                     <input type="file" name="foto" id="foto">
@@ -72,10 +72,7 @@ if(isset($_GET['id']) && $_COOKIE['acesso'] == md5('administrador') || isset($_C
                 </div>
                 <div class="search-box">
                     <label for="senha">Alterar senha</label>
-                    <input <?php if ($senhaUser != '') {
-                                echo "value='$senhaUser'";
-                            }
-                            ?> type="password" name="senha" id="senha">
+                    <input type="password" name="senha" id="senha">
                 </div>
                 <div class="search-box date">
                     <label for="dataNascimento">Data de Nascimento</label>
@@ -102,6 +99,9 @@ if(isset($_GET['id']) && $_COOKIE['acesso'] == md5('administrador') || isset($_C
                         
                         name="matricula" placeholder="Informe a matricula" type="text" id="matricula">
                     </div>
+                <?php } ?>
+                <?php if(isset($_GET['erro']) && $_GET['erro'] == 'preenchimento') { ?>
+                    <span class="formulario__mensagemErro">Deve preencher todos os campos!</span>
                 <?php } ?>
                 <button class="perfil__button" type="submit">Editar</button>
             </form>

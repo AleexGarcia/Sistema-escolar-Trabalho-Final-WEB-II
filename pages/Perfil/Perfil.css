@@ -75,6 +75,9 @@
     border-radius: 8px;
     
 }
+.formulario__mensagemErro{
+    font-size: 14px;
+}
 @media screen and (min-width: 768px) {
     .perfil{
         padding: 2rem 4rem;
