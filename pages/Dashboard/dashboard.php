@@ -39,7 +39,7 @@ $usuariosApp = $sql->fetchAll(PDO::FETCH_ASSOC);
                             <td> <?php echo $user['email'] ?> </td>
                             <td> <?php echo $user['acesso'] ?> </td>
                             <td class="editar"><a href="/Sistema-escolar-Trabalho-Final-WEB-II/index.php?page=perfil&id=<?php echo $user['id'] ?>" class="fa-solid fa-pencil"></a> </td>
-                            <td class="excluir"><a href="../Dashboard/Apagar/Apagar.php?id=<?php echo $user['id'] ?>" class="fa-solid fa-trash"></a></td>
+                            <td class="excluir"><a href="./pages/Dashboard/Apagar/Apagar.php?id=<?php echo $user['id'] ?>" class="fa-solid fa-trash"></a></td>
                         </tr>
                     <?php endforeach ?>
                 </tbody>
