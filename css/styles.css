@@ -2,6 +2,13 @@
 @import url('./Base/_variaveis.css');
 @import url('./Base/_base.css');
 @import url('./componentes/header/_header.css');
-@import url('./componentes/login/_login.css');
+@import url('../Pages/Cadastro/Cadastro.css');
+@import url('../Pages/Contato/Contato.css');
+@import url('../Pages/Dashboard/dashboard.css');
+@import url('../Pages/Home/Home.css');
+@import url('../Pages/Login/Login.css');
+@import url('../Pages/Perfil/Perfil.css');
+@import url('../Pages/PlanoDeEnsino/PlanoDeEnsino.css');
 @import url('./componentes/footer/_footer.css');
+
 
