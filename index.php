@@ -18,7 +18,7 @@
         if (isset($_GET['page'])) {
             $page = $_GET['page'];
             switch ($page) {
-                case 'cadastro':
+                case 'cadastro' :
                     $titulo = 'Cadastro';
                     require_once './Pages/Cadastro/Cadastro.php';
                     break;
@@ -47,6 +47,9 @@
                     require_once './Pages/PlanoDeEnsino/PlanoDeEnsino.php';
                     break;
             }
+        } else {
+            header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/index.php?page=login&login=erro2');
+            exit;
         }
 
         ?>
@@ -56,4 +59,5 @@
     ?>
 </body>
 <script src="./js/menu.js"></script>
+
 </html>

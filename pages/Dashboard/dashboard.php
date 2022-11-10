@@ -1,5 +1,8 @@
  <?php
 
+require_once './scripts/autenticado.php';
+require_once './scripts/validadorDeAcessoAdministrativo.php';
+
 require './dataBase/config.php';
 
 $sql = $pdo->query('SELECT * FROM usuario');

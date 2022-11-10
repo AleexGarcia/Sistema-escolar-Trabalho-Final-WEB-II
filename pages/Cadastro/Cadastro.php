@@ -1,18 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<?php
-//session_start();
-//require_once '../../scripts/validadorAcesso.php';
-//if (isset($_COOKIE['acesso']) && $_COOKIE['acesso'] != md5('administrador')) {
-//    header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/Pages/Home/Home.php');
-//    exit;
-//}
-
-?>
-
+<?php require_once './scripts/autenticado.php'; ?>
 <section>
     <h2>Cadastrar novo usuário</h2>
-    <form action="CriaCadastro/CriaCadastro.php" method="post" class="formulario">
+    <form action="/Sistema-escolar-Trabalho-Final-WEB-II/Pages/Cadastro/CriaCadastro/CriaCadastro.php" method="post" class="formulario">
         <div class="inputBox">
             <label for="matricula" class="formulario__label">Matricula:</label>
             <input name="matricula" placeholder="Informe a matricula" type="text" id="matricula" class="formulario__input">

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 
-require_once './scripts/validadorAcesso.php';
+require_once './scripts/autenticado.php';
 
 if (isset($_GET['id']) && $_COOKIE['acesso'] == md5('administrador') || isset($_COOKIE['id'])) {
 
