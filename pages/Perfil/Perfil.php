@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-if(isset($_GET['id']) && $_COOKIE['acesso'] =='administrador' || isset($_COOKIE['id'])){
+
+require_once '../../scripts/validadorAcesso.php';
+
+if(isset($_GET['id']) && $_COOKIE['acesso'] == md5('administrador') || isset($_COOKIE['id'])){
 
     require '../../dataBase/config.php';
     if(isset($_GET['id'])){
         $id = $_GET['id'];
     }else{
-        $id = $_COOKIE['id'];
+        $id = base64_decode($_COOKIE['id']);
     }
 
     $sql = 'SELECT * FROM usuario WHERE' . ' usuario.id' . " =  $id";
@@ -16,7 +19,7 @@ if(isset($_GET['id']) && $_COOKIE['acesso'] =='administrador' || isset($_COOKIE[
     $nomeUser = $user[0]['nome'];
     $sobreNomeUser = $user[0]['sobrenome'];
     $emailUser = $user[0]['email'];
-    $senhaUser = $user[0]['senha'];
+    $senhaUser = '';
     $nascimentoUser = $user[0]['nascimento'];
     $matriculaUser = $user[0]['matricula'];
 }
@@ -38,10 +41,10 @@ if(isset($_GET['id']) && $_COOKIE['acesso'] =='administrador' || isset($_COOKIE[
     <main>
         <section class="perfil">
             <h1 class="perfil__titulo">Editar perfil</h1>
-            <form class="perfil__form" action="./atualizaPerfil/atualizaPerfil.php?id=<?php echo $id?>" method="post">
+            <form class="perfil__form" action="./atualizaPerfil/atualizaPerfil.php?id=<?php echo $id?>" method="post" enctype="multipart/form-data">
                 <div class="search-box">
                     <div class="boxImgPerfil">
-                        <img class="perfil__imagem" src="../../assets/img/perfil.png" alt="">
+                        <img class="perfil__imagem" src="<?php echo $imagem ?>" alt="">
                         <label for="foto" class="foto__label fa-solid fa-pencil"></label>
                     </div>
                     <input type="file" name="foto" id="foto">
@@ -72,7 +75,7 @@ if(isset($_GET['id']) && $_COOKIE['acesso'] =='administrador' || isset($_COOKIE[
                     <input <?php if ($senhaUser != '') {
                                 echo "value='$senhaUser'";
                             }
-                            ?> type="senha" name="senha" id="senha">
+                            ?> type="password" name="senha" id="senha">
                 </div>
                 <div class="search-box date">
                     <label for="dataNascimento">Data de Nascimento</label>
@@ -81,10 +84,11 @@ if(isset($_GET['id']) && $_COOKIE['acesso'] =='administrador' || isset($_COOKIE[
                             }
                             ?> type="date" name="nascimento" id="dataNascimento">
                 </div>
-                <?php if (isset($_COOKIE['acesso']) && $_COOKIE['acesso'] == 'administrador') { ?>
+                <?php if (isset($_COOKIE['acesso']) && $_COOKIE['acesso'] == md5('administrador')) { ?>
                     <div class="search-box">
                         <label for="acesso" class="formulario__label">Acesso:</label>
                         <select name="acesso" id="acesso" class="formulario__input">
+                            <option>Selecione o tipo de acesso</option>
                             <option value="administrador">Administrador</option>
                             <option value="funcionario">Funcionario </option>
                             <option value="aluno">Aluno</option>

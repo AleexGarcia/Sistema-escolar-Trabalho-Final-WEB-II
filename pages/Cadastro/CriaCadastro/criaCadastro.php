@@ -4,7 +4,10 @@ require '../../../dataBase/config.php';
 
 //pegando valores do formulario
 $matricula = filter_input(INPUT_POST, 'matricula', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
 $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$senhaCriptografada = md5($senha);
+
 $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $sobrenome = filter_input(INPUT_POST, 'sobrenome', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
@@ -23,7 +26,7 @@ if ($matricula && $senha && $acesso && $nome && $sobrenome && $email && $nascime
         $sql->bindValue(':id', $id);
         $sql->bindValue(':acesso', $acesso);
         $sql->bindValue(':matricula', $matricula);
-        $sql->bindValue(':senha', $senha);
+        $sql->bindValue(':senha', $senhaCriptografada);
         $sql->bindValue(':nome', $nome);
         $sql->bindValue(':sobrenome', $sobrenome);
         $sql->bindValue(':email', $email);

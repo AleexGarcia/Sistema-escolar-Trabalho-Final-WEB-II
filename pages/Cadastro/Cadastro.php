@@ -2,10 +2,10 @@
 <html lang="pt-br">
 <?php
 session_start();
-require_once '../../scripts/validadorAcesso.php';
-if (isset($_COOKIE['acesso']) && $_COOKIE['acesso'] != 'administrador') {
-    header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/Pages/Home/Home.php');
-}
+// require_once '../../scripts/validadorAcesso.php';
+// if (isset($_COOKIE['acesso']) && $_COOKIE['acesso'] != 'administrador') {
+//     header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/Pages/Home/Home.php');
+// }
 
 ?>
 
@@ -31,7 +31,7 @@ if (isset($_COOKIE['acesso']) && $_COOKIE['acesso'] != 'administrador') {
             </div>
             <div class="inputBox">
                 <label for="senha" class="formulario__label">Senha:</label>
-                <input  name="senha" placeholder="Digite a senha" type="text" id="senha" class="formulario__input">
+                <input  name="senha" placeholder="Digite a senha" type="password" id="senha" class="formulario__input">
             </div>
             <div class="inputBox">
                 <label for="nome" class="formulario__label">Nome:</label>

@@ -20,9 +20,6 @@ require_once '../../scripts/validadorAcesso.php';
     require_once "../../components/Header/Header.php";
     ?>
     <main>
-        <?php
-        print_r($_COOKIE['token']);
-        ?>
         <p>Home</p>
     </main>
     <?php
