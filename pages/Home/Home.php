@@ -3,5 +3,5 @@
 
 
 <p>Home</p>
-
+<audio autoplay="autoplay" loop="loop" src="./assets/theme.mp3"></audio>
 </html>

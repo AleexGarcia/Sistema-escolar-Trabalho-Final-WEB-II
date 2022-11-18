@@ -56,8 +56,8 @@
     order: 2;
 }
 .header__link:hover{
-    padding-bottom: 26px;
-    border-bottom: 3px solid var(--branco);
+    
+    border-left: 3px solid var(--branco);
 }
 .header__logout{
     background: none;
@@ -101,7 +101,13 @@
         background-color: transparent;
     }
     .header__link{
+        padding-bottom: 26px;
         margin-left: 1.5rem;
+        
+    }
+    .header__link:hover{
+        border-left: none;
+        border-bottom: 3px solid var(--branco);
     }
  
 }

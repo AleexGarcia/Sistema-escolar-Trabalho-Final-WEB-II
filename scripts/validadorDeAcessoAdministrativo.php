@@ -2,7 +2,7 @@
     
     //verificando se usuario não foi autenticado e redirecionando para pagina de login
 
-    if(isset($_COOKIE['token']) && isset($_COOKIE['id']) && isset($_COOKIE['nome']) && isset($_COOKIE['acesso']) && $_COOKIE['acesso'] != 'administrador') {
+    if(isset($_COOKIE['token']) && isset($_COOKIE['id']) && isset($_COOKIE['nome']) && isset($_COOKIE['acesso']) && $_COOKIE['acesso'] != md5('administrador')) {
         header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/index.php?page=home');
         exit;
     }

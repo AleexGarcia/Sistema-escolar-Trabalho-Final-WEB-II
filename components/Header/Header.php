@@ -6,6 +6,7 @@ if(isset($_COOKIE["id"])){
     $sql = 'SELECT * FROM usuario WHERE' . ' usuario.id' . " =  $id";
     $statement = $pdo->query($sql);
     $user = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $nomeBanco = $user[0]['nome']; 
     $imagem = $user[0]['imagem'] != null ? $user[0]['imagem'] : '/Sistema-escolar-Trabalho-Final-WEB-II/dataBase/userImagens/userPadrao.jpg';
 }
 
@@ -26,7 +27,7 @@ echo '<header class="header">
             if (!isset($_COOKIE['token'])) {
                 echo '<a class="header__link" href="/Sistema-escolar-Trabalho-Final-WEB-II/index.php?page=login">Login</a>';
             } else {
-                echo  '<a class="header__link" href="/Sistema-escolar-Trabalho-Final-WEB-II/index.php?page=planoDeEnsino">Plano de ensino</a>';
+                echo  '<a class="header__link" href="/Sistema-escolar-Trabalho-Final-WEB-II/index.php?page=matricula">Matricula</a>';
                 echo  '<a class="header__link" href="/Sistema-escolar-Trabalho-Final-WEB-II/index.php?page=perfil">Perfil</a>';
                 echo  '<a class="header__link" href="/Sistema-escolar-Trabalho-Final-WEB-II/scripts/Logoff.php">Logout</a>';
             }
@@ -34,7 +35,7 @@ echo '<header class="header">
         echo '</nav>';
         if (isset($_COOKIE['token'])) { 
             echo '
-            <div class="userBox"> <span class="userName">'.$_COOKIE['nome'].'</span>
+            <div class="userBox"> <span class="userName">'.$nomeBanco.'</span>
             <div class="boxImagem">
             <img class="user__imagem" src="'.$imagem.'" alt="">
         </div></div>';

@@ -28,7 +28,10 @@ if (isset($_GET['id']) && $_COOKIE['acesso'] == md5('administrador') || isset($_
 
 <section class="perfil">
     <h1 class="perfil__titulo">Editar perfil</h1>
-    <form class="perfil__form" action="./pages/Perfil/atualizaPerfil/atualizaPerfil.php?id=<?php echo $id ?>" method="post" enctype="multipart/form-data">
+    <form class="perfil__form" action="./pages/Perfil/atualizaPerfil/atualizaPerfil.php<?php if(isset($_GET['id'])){
+      echo "?id=".$_GET['id'];
+    }?>"  
+     method="post" enctype="multipart/form-data">
         <div class="search-box">
             <div class="boxImgPerfil">
                 <img class="perfil__imagem" src="<?php echo $imagemUser ?>" alt="">

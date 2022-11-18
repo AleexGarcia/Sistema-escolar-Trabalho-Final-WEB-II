@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/styles.css">
-    <title><?php $titulo ?></title>
+    <title>E.M.B. de Hogwarts</title>
 </head>
 
 <body>
@@ -42,13 +42,14 @@
                     $titulo = 'Perfil';
                     require_once './Pages/Perfil/Perfil.php';
                     break;
-                case 'planoDeEnsino':
-                    $titulo = 'Plano de Ensino';
-                    require_once './Pages/PlanoDeEnsino/PlanoDeEnsino.php';
+                case 'matricula':
+                    $titulo = 'matricula';
+                    require_once './Pages/Matricula/Matricula.php';
                     break;
             }
         } else {
-            header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/index.php?page=login&login=erro2');
+            require_once './scripts/autenticado.php';
+            header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/index.php?page=home');
             exit;
         }
 
@@ -57,6 +58,7 @@
     <?php
     require_once 'components/Footer/Footer.php';
     ?>
+    
 </body>
 <script src="./js/menu.js"></script>
 

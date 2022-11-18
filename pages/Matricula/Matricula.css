@@ -1,10 +1,9 @@
-
-.table-container{
+.tableContainer{
     overflow-x: scroll;
     width: 90vw;
     max-width: max-content;
 }
-.dashboard{
+.materias{
     border-radius: 8px 8px 0 0;
    background-color: rgba(255, 255, 255, 0.904);
    border-collapse: collapse;
@@ -14,26 +13,32 @@
    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
  
 }
-.dashboard thead tr {
+.materias thead tr {
     background-color: var(--azulEscuro-opacity);
     color: #ffffff;
     text-align: left;
 }
-.dashboard th,.dashboard td{
+
+.materias input{
+    position: relative;
+    left: 50%;
+}
+.materias th,.materias td{
     padding: 12px 15px;
 }
-.dashboard tbody tr {
+.materias tbody tr {
     color: black;
     border-bottom: 1px solid #dddddd;
 }
 
-.dashboard tbody tr:nth-of-type(even) {
+.materias tbody tr:nth-of-type(even) {
     background-color: #f3f3f3;
 }
 
-.dashboard tbody tr:last-of-type {
+.materias tbody tr:last-of-type {
     border-bottom: 2px solid var(--branco);
 }
+
 .editar,.excluir{
     text-decoration: none;
     color: black;
