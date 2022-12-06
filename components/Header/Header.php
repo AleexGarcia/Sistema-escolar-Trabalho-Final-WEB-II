@@ -28,8 +28,8 @@ if (isset($_COOKIE["id"])) {
                 <a class="header__link" href="/Sistema-escolar-Trabalho-Final-WEB-II/index.php?page=login">Login</a>
             <?php } else { ?>
                 <a class="header__link" href="/Sistema-escolar-Trabalho-Final-WEB-II/index.php?page=matricula">Matricula</a>
-                <a class="header__link" href="/Sistema-escolar-Trabalho-Final-WEB-II/index.php?page=perfil">Perfil</a>'
-                <a class="header__link" href="/Sistema-escolar-Trabalho-Final-WEB-II/scripts/Logoff.php">Logout</a>'
+                <a class="header__link" href="/Sistema-escolar-Trabalho-Final-WEB-II/index.php?page=perfil">Perfil</a>
+                <a class="header__link" href="/Sistema-escolar-Trabalho-Final-WEB-II/scripts/Logoff.php">Logout</a>
             <?php } ?>
         </nav>
         <?php if (isset($_COOKIE['token'])) { ?>

@@ -1,7 +1,7 @@
 .tableContainer{
     overflow-x: scroll;
     width: 90vw;
-    max-width: max-content;
+    display: flex;
 }
 .materias{
     border-radius: 8px 8px 0 0;
@@ -45,6 +45,19 @@
     text-align: center;
     cursor: pointer;
 }
+.matricula__button{
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: .5rem;
+    margin-bottom: 1rem;
+    
+}
+.matricula__formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
 @media screen and (min-width: 1080px) {
     .table-container{
         overflow-x: hidden;
