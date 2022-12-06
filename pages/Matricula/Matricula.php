@@ -7,12 +7,14 @@ if (isset($_COOKIE['id'])) {
     require './dataBase/config.php';
 
     $id = base64_decode($_COOKIE['id']);
-
-
     $sql = 'SELECT * FROM usuario WHERE' . ' usuario.id' . " =  $id";
     $statement = $pdo->query($sql);
     $user = $statement->fetchAll(PDO::FETCH_ASSOC);
-    $materias = json_decode($user[0]['materias']);
+    if($user[0]['materias'] != null){
+        $materias = json_decode($user[0]['materias']);
+    }else{
+        $materias = [];
+    }
 }
 
 ?>

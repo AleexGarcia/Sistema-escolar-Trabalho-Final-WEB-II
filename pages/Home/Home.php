@@ -13,7 +13,7 @@
                 <img class="d-block imagem1" src="/Sistema-escolar-Trabalho-Final-WEB-II/assets/img/bannerHome/quadribol620.jpg" alt="First slide">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>QUADRIBOL: Sonserina x Grifinoria</h5>
-                    <p>Jogo de quadribol na proxima sexta.</p>
+                    <p  >Jogo de quadribol na proxima sexta.</p>
                 </div>
             </div>
             <div class="carousel-item">
