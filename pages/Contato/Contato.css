@@ -1,5 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,700;1,400&display=swap');
-@import url('../../css/Base/_variaveis.css');
-@import url('../../css/Base/_base.css');
-@import url('../../css/componentes/header/_header.css');
-@import url('../../css/componentes/footer/_footer.css');
+.contato{
+    margin: 1rem auto;
+    padding: 1rem;
+    max-width: 90%;
+    background-color: var(--brancoTransparente);
+    border-radius: .5rem;
+}
+.send-box{
+    padding: 1rem 1.5rem;
+}
+.contato__button{
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+@media screen and (min-width:765px) {
+    .contato{
+        display: flex;
+        align-items: center;
+    }
+    .head-box{
+        padding: 1rem;
+    }
+}

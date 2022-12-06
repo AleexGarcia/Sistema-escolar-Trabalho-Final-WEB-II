@@ -8,7 +8,7 @@ $materias = json_encode($matriculaRecebida);
 $idEnvio = base64_decode($_COOKIE['id']);
 
 $sql = "UPDATE usuario SET materias = :materias WHERE". " usuario.id" . " =  $idEnvio";
-if($materias ){
+if($materias){
 
     $statement = $pdo->prepare($sql);
     

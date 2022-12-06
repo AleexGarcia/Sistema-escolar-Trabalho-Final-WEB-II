@@ -1,28 +1,106 @@
-#carouselExampleIndicators{
-    width: 100%;
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-}
-.home{
+.home {
     padding-top: 2rem;
     padding-bottom: 2rem;
-    max-width: 80%;
+    max-width: 90%;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 1fr;
+    display: flex;
+    flex-direction: column;
     gap: .5rem;
 }
-.garota{
-    grid-column: 2 / 3;
-    grid-row: 1 / 3;
-}
-.garota img, .reunion img {
+
+#carouselExampleIndicators {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+
 }
-.reunion{
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
+
+.garota,
+.reunion {
+    min-height: 33vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+}
+
+.garota {
+    background-image: url(../../assets/img/home/garota.jpg);
+}
+
+.reunion {
+    background-image: url(../../assets/img/home/reunion.jpg);
+}
+
+.imagem1,
+.imagem2,
+.imagem3 {
+    width: 90vw;
+    height: 33vh;
+}
+
+.box-imagem {
+
+    text-align: center;
+    background-color: var(--brancoTransparente);
+}
+
+.box-imagem a {
+    width: 90%;
+    color: inherit;
+    text-decoration: none;
+}
+
+.box-imagem h1 {
+    font-size: 1.5rem;
+}
+
+@media screen and (min-width:765px) {
+    
+    .imagem1,
+    .imagem2,
+    .imagem3 {
+        width: 80vw;
+        height: 50vh;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    #carouselExampleIndicators {
+        width: 100%;
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+
+    .home {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        max-width: 80%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto 1fr;
+        gap: .5rem;
+    }
+
+    .garota {
+        grid-column: 2 / 3;
+        grid-row: 1 / 3;
+
+    }
+
+    .reunion {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+    }
+
+    .imagem1,
+    .imagem2,
+    .imagem3 {
+        width: 40vw;
+        height: 33vh;
+        object-fit: cover;
+    }
+
 }
