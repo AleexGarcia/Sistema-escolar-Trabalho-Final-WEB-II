@@ -207,11 +207,21 @@ if (isset($_COOKIE['id'])) {
         </div>
     </section>
 <?php } else { ?>
-<?php
+    <?php
     require_once './Pages/Matricula/graficosDeAlunos/grafico.php';
-?>
+    ?>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
+       
+       let widthGrafico = window.screen.width * .75;
+        window.addEventListener('resize', e => {
+            let screenWidth = e.target.screen.width;
+            widthGrafico = screenWidth * 0.75;
+            google.charts.setOnLoadCallback(drawChartNumAlunosPorMateria);
+            google.charts.setOnLoadCallback(drawChartNumAlunosMatriculados);
+        });
+
+
         google.charts.load("current", {
             packages: ["corechart"]
         });
@@ -240,23 +250,18 @@ if (isset($_COOKIE['id'])) {
                 title: 'Quantidade de alunos matriculados',
                 is3D: true,
                 pieSliceText: 'value',
-                legend: {position: 'bottom'},
+                legend: {
+                    position: 'bottom'
+                },
                 width: widthGrafico
             };
 
             var chart = new google.visualization.PieChart(document.getElementById('matriculadosPorMateria'));
             chart.draw(data, options);
         }
-       
-        let widthGrafico = 360;
-        if(window.screen.width <= 600){
-            widthGrafico = 360;
-        }else if(window.screen.width > 600 && window.screen.width < 1024){
-            widthGrafico = 540;
-        }else{
-            widthGrafico = 768;
-        }
-        
+
+
+
 
         function drawChartNumAlunosMatriculados() {
             var data = google.visualization.arrayToDataTable([
@@ -268,7 +273,10 @@ if (isset($_COOKIE['id'])) {
             var options = {
                 title: 'Quantidade de alunos matriculados',
                 is3D: true,
-                legend: {position: 'bottom'}
+                legend: {
+                    position: 'bottom'
+                },
+                width: widthGrafico
             };
 
             var chart = new google.visualization.PieChart(document.getElementById('naoMatriculados'));
@@ -279,7 +287,7 @@ if (isset($_COOKIE['id'])) {
     <section class="matricula__relatorio">
         <div id="matriculadosPorMateria"></div>
         <div id="naoMatriculados"></div>
-    </section>    
+    </section>
 
 <?php } ?>
 

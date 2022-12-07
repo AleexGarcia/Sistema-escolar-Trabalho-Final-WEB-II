@@ -57,7 +57,10 @@
     flex-direction: column;
     align-items: flex-end;
 }
-
+.matricula__relatorio{
+    min-width: 90%;
+    background-color: var(--brancoTransparente);
+}
 @media screen and (min-width: 1080px) {
     .table-container{
         overflow-x: hidden;
