@@ -16,18 +16,22 @@ $acesso = filter_input(INPUT_POST, 'acesso', FILTER_SANITIZE_FULL_SPECIAL_CHARS)
 $imagemRecebida = $_FILES['foto'];
 
 
-if(isset($_GET['id'])){
-    
+if (isset($_GET['id'])) {
+
     $id = $_GET['id'];
 
-    if($imagemRecebida['name'] != NULL) {
-	
-        $nomeFinal = time().'.jpg';
+    if ($imagemRecebida['name'] != NULL) {
+        $sql = 'SELECT imagemNome FROM usuario WHERE' . ' usuario.id' . " =  $id";
+        $statement = $pdo->query($sql);
+        $user = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $imagemNome = $user[0]['imagemNome'];
+        unlink("../../../dataBase/userImagens/$imagemNome.jpg");
+
+        $nomeFinal = time() . '.jpg';
         $localRefPerfil = "../../../dataBase/userImagens/$nomeFinal";
         move_uploaded_file($imagemRecebida['tmp_name'], $localRefPerfil);
-        $localInicio = 	"/Sistema-escolar-Trabalho-Final-WEB-II/dataBase/userImagens/$nomeFinal";
-        
-    }else{
+        $localInicio =     "/Sistema-escolar-Trabalho-Final-WEB-II/dataBase/userImagens/$nomeFinal";
+    } else {
         $sql = 'SELECT * FROM usuario WHERE' . ' usuario.id' . " =  $id";
         $statement = $pdo->query($sql);
         $user = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -36,11 +40,11 @@ if(isset($_GET['id'])){
     }
 
 
-    $sql = "UPDATE usuario SET acesso = :acesso , matricula = :matricula , senha = :senha ,nome = :nome ,sobrenome = :sobrenome ,nascimento = :nascimento ,email = :email, imagem = :imagem , imagemNome = :imagemNome WHERE". " usuario.id" . " =  $id";
-    if($matricula && $senha && $nome && $sobrenome && $email && $nascimento && $acesso ){
+    $sql = "UPDATE usuario SET acesso = :acesso , matricula = :matricula , senha = :senha ,nome = :nome ,sobrenome = :sobrenome ,nascimento = :nascimento ,email = :email, imagem = :imagem , imagemNome = :imagemNome WHERE" . " usuario.id" . " =  $id";
+    if ($matricula && $senha && $nome && $sobrenome && $email && $nascimento && $acesso) {
 
         $statement = $pdo->prepare($sql);
-        
+
         $statement->bindValue(':acesso', $acesso);
         $statement->bindValue(':matricula', $matricula);
         $statement->bindValue(':senha', $senhaCriptografada);
@@ -50,28 +54,32 @@ if(isset($_GET['id'])){
         $statement->bindValue(':email', $email);
         $statement->bindValue(':imagem', $localInicio);
         $statement->bindValue(':imagemNome', $nomeFinal);
-        
+
         $statement->execute();
-        
+
         header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/index.php?page=dashboard');
-        
+
         exit;
-    }else{
-   header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/index.php?page=perfil&erro=preenchimento');
+    } else {
+        header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/index.php?page=perfil&erro=preenchimento');
         exit;
     }
-
-}else{
+} else {
     $id = base64_decode($_COOKIE['id']);
-    
-    if($imagemRecebida['name'] != NULL) {
-	
-        $nomeFinal = time().'.jpg';
+
+    if ($imagemRecebida['name'] != NULL) {
+        $sql = 'SELECT imagemNome FROM usuario WHERE' . ' usuario.id' . " =  $id";
+        $statement = $pdo->query($sql);
+        $user = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $imagemNome = $user[0]['imagemNome'];
+        unlink("../../../dataBase/userImagens/$imagemNome.jpg");
+
+
+        $nomeFinal = time() . '.jpg';
         $localRefPerfil = "../../../dataBase/userImagens/$nomeFinal";
         move_uploaded_file($imagemRecebida['tmp_name'], $localRefPerfil);
-        $localInicio = 	"/Sistema-escolar-Trabalho-Final-WEB-II/dataBase/userImagens/$nomeFinal";
-        
-    }else{
+        $localInicio =     "/Sistema-escolar-Trabalho-Final-WEB-II/dataBase/userImagens/$nomeFinal";
+    } else {
         $sql = 'SELECT * FROM usuario WHERE' . ' usuario.id' . " =  $id";
         $statement = $pdo->query($sql);
         $user = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -80,12 +88,12 @@ if(isset($_GET['id'])){
     }
 
 
-    $sql = "UPDATE usuario SET senha = :senha ,nome = :nome ,sobrenome = :sobrenome ,nascimento = :nascimento ,email = :email, imagem = :imagem , imagemNome = :imagemNome WHERE". " usuario.id" . " =  $id";
+    $sql = "UPDATE usuario SET senha = :senha ,nome = :nome ,sobrenome = :sobrenome ,nascimento = :nascimento ,email = :email, imagem = :imagem , imagemNome = :imagemNome WHERE" . " usuario.id" . " =  $id";
 
-    if($senha && $nome && $sobrenome && $email && $nascimento ){
+    if ($senha && $nome && $sobrenome && $email && $nascimento) {
 
         $statement = $pdo->prepare($sql);
-        
+
         $statement->bindValue(':senha', $senhaCriptografada);
         $statement->bindValue(':nome', $nome);
         $statement->bindValue(':sobrenome', $sobrenome);
@@ -93,17 +101,14 @@ if(isset($_GET['id'])){
         $statement->bindValue(':email', $email);
         $statement->bindValue(':imagem', $localInicio);
         $statement->bindValue(':imagemNome', $nomeFinal);
-        
+
         $statement->execute();
-    
-    header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/index.php?page=perfil');
-        
-    exit;
-    }else{
-    header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/index.php?page=perfil&erro=preenchimento');
+
+        header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/index.php?page=perfil');
+
+        exit;
+    } else {
+        header('Location: /Sistema-escolar-Trabalho-Final-WEB-II/index.php?page=perfil&erro=preenchimento');
         exit;
     }
 }
-
-
-

@@ -33,7 +33,7 @@ if (isset($_COOKIE["id"])) {
             <?php } ?>
         </nav>
         <?php if (isset($_COOKIE['token'])) { ?>
-            <div class="userBox"> <span class="userName"><?php $nomeBanco ?></span>
+            <div class="userBox"> <span class="userName"><?php echo $nomeBanco ?></span>
                 <div class="boxImagem">
                     <img class="user__imagem" src="<?php echo $imagem ?>" alt="User image">
                 </div>
