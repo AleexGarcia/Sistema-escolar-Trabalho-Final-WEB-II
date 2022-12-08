@@ -14,7 +14,7 @@ $id = null;
 //Banco de dados de usuarios
 
 $usuariosApp = $sql->fetchAll(PDO::FETCH_ASSOC);
-print_r($usuariosApp);
+
 //dados recebidos do formulario
 
 $loginRecebido =  filter_input(INPUT_POST, 'matricula', FILTER_SANITIZE_FULL_SPECIAL_CHARS);

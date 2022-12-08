@@ -25,6 +25,6 @@
             <?php } ?>
 
             <button class="formulario__button" type="submit">Logar</button>
-            <a class="formulario__link" href="#">Esqueceu a senha</a>
+
         </form>
 </html>
