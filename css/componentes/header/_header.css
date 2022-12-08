@@ -59,7 +59,6 @@
 .header__link:hover{
     color: white;
     text-decoration: none;
-    border-left: 3px solid var(--branco);
 }
 .header__logout{
     background: none;
