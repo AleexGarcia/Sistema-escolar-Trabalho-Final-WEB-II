@@ -53,6 +53,6 @@
     
 </section>
 
-<!-- <audio autoplay="autoplay" loop="loop" src="./assets/theme.mp3"></audio> -->
+<audio autoplay="autoplay" loop="loop" src="./assets/theme.mp3"></audio>
 
 </html>
